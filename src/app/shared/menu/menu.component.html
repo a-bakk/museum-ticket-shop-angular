@@ -1,4 +1,4 @@
-<select>
+<select [(ngModel)]="currPage" (change)="switchMenu()">
   <option value="exhibitions">Exhibitions</option>
   <option value="tickets">Tickets</option>
   <option value="profile">Profile</option>
