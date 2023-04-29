@@ -12,16 +12,22 @@ const routes: Routes = [
   {
     path: 'tickets',
     loadChildren: () =>
-      import('./pages/tickets/tickets.module').then(
-        (m) => m.TicketsModule
-      ),
+      import('./pages/tickets/tickets.module').then((m) => m.TicketsModule),
   },
   {
     path: 'profile',
     loadChildren: () =>
-      import('./pages/profile/profile.module').then(
-        (m) => m.ProfileModule
-      ),
+      import('./pages/profile/profile.module').then((m) => m.ProfileModule),
+  },
+  {
+    path: 'login',
+    loadChildren: () =>
+      import('./pages/login/login.module').then((m) => m.LoginModule),
+  },
+  {
+    path: 'register',
+    loadChildren: () =>
+      import('./pages/register/register.module').then((m) => m.RegisterModule),
   },
   {
     path: 'not-found',
@@ -33,12 +39,12 @@ const routes: Routes = [
   {
     path: '',
     redirectTo: '/exhibitions',
-    pathMatch: 'full'
+    pathMatch: 'full',
   },
   {
     path: '**',
-    redirectTo: '/not-found'
-  }
+    redirectTo: '/not-found',
+  },
 ];
 
 @NgModule({
