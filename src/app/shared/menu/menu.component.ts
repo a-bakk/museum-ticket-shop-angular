@@ -18,10 +18,6 @@ export class MenuComponent implements OnInit {
   ngOnInit(): void {
   }
 
-  // switchMenu() {
-  //   this.currentPage.emit(this.currPage);
-  // }
-
   close() {
     this.onCloseSidenav.emit(true);
   }
