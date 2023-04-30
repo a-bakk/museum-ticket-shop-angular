@@ -1,6 +1,6 @@
 <mat-sidenav-container>
   <mat-sidenav position="end" #sidenav >
-    <app-menu (currentPage)="navigate($event)" [currPage]="page" (onCloseSidenav)="onClose($event, sidenav)"></app-menu>
+    <app-menu (currentPage)="navigate($event)" [currPage]="page" (onCloseSidenav)="onClose($event, sidenav)" [loggedInUser]="loggedInUser" (onLogout)="logout($event)"></app-menu>
   </mat-sidenav>
   <mat-sidenav-content class="bg-light text-dark">
     <mat-toolbar color="primary">
@@ -8,10 +8,11 @@
       <div fxFlex fxLayout fxLayoutAlign="flex-end" fxHide.xs>
         <ul fxLayout fxLayoutGap="10px" class="nav-items">
           <li><a routerLink="/exhibitions">Exhibitions</a></li>
-          <li><a routerLink="/login">Login</a></li>
-          <li><a routerLink="/register">Register</a></li>
-          <li><a routerLink="/tickets">Tickets</a></li>
-          <li><a routerLink="/profile">Profile</a></li>
+          <li *ngIf="!(loggedInUser)"><a routerLink="/login">Login</a></li>
+          <li *ngIf="!(loggedInUser)"><a routerLink="/register">Register</a></li>
+          <li *ngIf="loggedInUser"><a routerLink="/tickets">Buy Tickets</a></li>
+          <li *ngIf="loggedInUser"><a routerLink="/profile">Profile</a></li>
+          <li *ngIf="loggedInUser"><a routerLink="/login" (click)="logout()">Logout</a></li>
         </ul>
       </div>
       <div fxHide.gt-xs fxFlex fxLayout fxLayoutAlign="flex-end">
