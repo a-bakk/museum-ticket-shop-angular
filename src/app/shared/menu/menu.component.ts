@@ -11,13 +11,19 @@ export class MenuComponent implements OnInit {
   // called by app component
   @Output() currentPage: EventEmitter<string> = new EventEmitter();
 
+  @Output() onCloseSidenav: EventEmitter<boolean> = new EventEmitter();
+
   constructor() { }
 
   ngOnInit(): void {
   }
 
-  switchMenu() {
-    this.currentPage.emit(this.currPage);
+  // switchMenu() {
+  //   this.currentPage.emit(this.currPage);
+  // }
+
+  close() {
+    this.onCloseSidenav.emit(true);
   }
 
 }
