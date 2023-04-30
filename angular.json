@@ -105,6 +105,16 @@
             ],
             "scripts": []
           }
+        },
+        "deploy": {
+          "builder": "@angular/fire:deploy",
+          "options": {
+            "prerender": false,
+            "ssr": false,
+            "browserTarget": "museum-ticket-shop-angular:build:production",
+            "firebaseProject": "museum-ticket-shop-angular",
+            "firebaseHostingSite": "museum-ticket-shop-angular"
+          }
         }
       }
     }
