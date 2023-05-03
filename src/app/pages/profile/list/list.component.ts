@@ -1,4 +1,4 @@
-import { Component, Input, OnInit } from '@angular/core';
+import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
 import { Ticket } from '../../../shared/models/Ticket';
 import { TicketService } from '../../../shared/services/ticket.service';
 
@@ -7,8 +7,9 @@ import { TicketService } from '../../../shared/services/ticket.service';
   templateUrl: './list.component.html',
   styleUrls: ['./list.component.scss']
 })
-export class ListComponent {
+export class ListComponent implements OnInit {
   @Input() email: string | undefined | null;
+  @Output() deleteTicket = new EventEmitter<string>();
   tickets: Ticket[] = [];
 
   constructor(private ticketService: TicketService) {}
@@ -21,5 +22,9 @@ export class ListComponent {
     this.ticketService.readTicketsByEmail(this.email as string).subscribe((tickets: Ticket[]) => {
       this.tickets = tickets;
     });
+  }
+
+  onDeleteTicket(ticketId: string) {
+    this.deleteTicket.emit(ticketId);
   }
 }
