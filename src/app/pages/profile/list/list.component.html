@@ -1,5 +1,21 @@
-<ul>
-  <li *ngFor="let ticket of tickets">
-    <h2>{{ ticket.id }}</h2>
-  </li>
-</ul>
+<mat-divider class="my-3"></mat-divider>
+
+<div class="container d-flex flex-column justify-content-center align-items-center my-3" *ngFor="let ticket of tickets">
+  <mat-card class="ticket-card mb-1">
+    <mat-card-header>
+      <mat-card-title>{{ ticket.exhibitionId | exhibitionConvert | async }}</mat-card-title>
+    </mat-card-header>
+    <mat-card-content>
+      <p>Type: {{ ticket.ticketType }}</p>
+      <p>Date: {{ ticket.date | date:'yyyy-MM-dd' }}</p>
+      <p>Price: &euro;{{ ticket.price }}</p>
+    </mat-card-content>
+    <mat-card-actions class="d-flex justify-content-between align-items-center">
+      <button mat-flat-button color="primary">Modify</button>
+      <button mat-flat-button color="warn">Delete</button>
+    </mat-card-actions>
+  </mat-card>
+  <mat-divider></mat-divider>
+</div>
+
+<mat-divider class="my-3"></mat-divider>

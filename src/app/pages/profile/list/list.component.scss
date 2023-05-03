@@ -1,0 +1,11 @@
+$maximum-width: 400px;
+
+.ticket-card {
+  max-width: $maximum-width;
+  background-color: #fff;
+  color: rgba(0,0,0,.88);
+}
+
+.dark-text {
+  color: rgba(0,0,0,.88);
+}

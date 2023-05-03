@@ -17,7 +17,7 @@ export class TicketService {
   }
 
   readTicketById(id: number) {
-    return this.afs.collection<Ticket>(this.collectionName, ref => ref.where('id', '==', id));
+    return this.afs.collection<Ticket>(this.collectionName, ref => ref.where('id', '==', id)).valueChanges();
   }
 
   readTicketsByEmail(email: string) {

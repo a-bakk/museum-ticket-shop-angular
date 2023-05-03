@@ -12,7 +12,7 @@ export class ExhibitionService {
   constructor(private afs: AngularFirestore) { }
 
   readExhibitionById(id: string) {
-    return this.afs.collection<Exhibition>(this.collectionName, ref => ref.where('id', '==', id));
+    return this.afs.collection<Exhibition>(this.collectionName, ref => ref.where('id', '==', id)).valueChanges();
   }
 
   readAllExhibitions() {
