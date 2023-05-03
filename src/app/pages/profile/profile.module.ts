@@ -3,15 +3,19 @@ import { CommonModule } from '@angular/common';
 
 import { ProfileRoutingModule } from './profile-routing.module';
 import { ProfileComponent } from './profile.component';
+import { ListComponent } from './list/list.component';
 
 
 @NgModule({
   declarations: [
-    ProfileComponent
+    ProfileComponent,
+    ListComponent
   ],
   imports: [
     CommonModule,
     ProfileRoutingModule
   ]
 })
-export class ProfileModule { }
+export class ProfileModule {
+
+}
