@@ -1,1 +1,39 @@
-<p>tickets works!</p>
+<div class="container d-flex flex-column align-items-center justify-content-center mt-2">
+    <h1 class="my-4">Buy tickets for an exhibition</h1>
+    <form [formGroup]="ticketForm" (ngSubmit)="onSubmit()" class="d-flex flex-column align-items-center justify-content-center mt-2">
+      <mat-form-field>
+        <mat-label for="exhibition" class="dark-label">Choose an exhibition</mat-label>
+        <mat-select formControlName="exhibition">
+          <mat-option *ngFor="let exhibition of exhibitions" [value]="exhibition">
+            {{ exhibition.name }}
+          </mat-option>
+        </mat-select>
+      </mat-form-field>
+      <span class="dark-label mt-3">Choose the number of full price tickets (adults)</span>
+      <mat-form-field class="mt-2">
+        <mat-label for="fullPrice" class="dark-label">Select number of tickets</mat-label>
+        <mat-select formControlName="fullPrice">
+          <mat-option *ngFor="let i of [0, 1, 2, 3, 4, 5]" [value]="i">
+            {{ i }}
+          </mat-option>
+        </mat-select>
+      </mat-form-field>
+      <span class="dark-label mt-3">Choose the number of half price tickets (students/seniors)</span>
+      <mat-form-field class="mt-2">
+        <mat-label for="halfPrice" class="dark-label">Select number of tickets</mat-label>
+        <mat-select formControlName="halfPrice">
+          <mat-option *ngFor="let i of [0, 1, 2, 3, 4, 5]" [value]="i">
+            {{ i }}
+          </mat-option>
+        </mat-select>
+      </mat-form-field>
+      <mat-form-field appearance="fill" class="mt-3">
+        <mat-label class="dark-label">Choose a date</mat-label>
+        <input matInput [matDatepicker]="picker" formControlName="ticketDate">
+        <mat-hint>MM/DD/YYYY</mat-hint>
+        <mat-datepicker #picker></mat-datepicker>
+      </mat-form-field>
+      <button mat-raised-button (click)="picker.open(); $event.preventDefault()" color="primary">Pick date</button>
+      <button mat-raised-button class="mt-4" color="primary" type="submit">Buy</button>
+    </form>
+</div>

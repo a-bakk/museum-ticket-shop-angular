@@ -13,7 +13,7 @@ export class TicketService {
 
   createTicket(ticket: Ticket) {
     ticket.id = this.afs.createId();
-    this.afs.collection<Ticket>(this.collectionName).doc(ticket.id).set(ticket);
+    this.afs.collection<Ticket>(this.collectionName).doc(ticket.id).set(Object.assign({}, ticket));
   }
 
   readTicketById(id: number) {

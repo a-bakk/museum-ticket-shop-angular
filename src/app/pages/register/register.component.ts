@@ -21,7 +21,7 @@ export class RegisterComponent implements OnInit {
 
   ngOnInit(): void {
     this.registerForm.get('name')?.addValidators([Validators.required]);
-    this.registerForm.get('email')?.addValidators([Validators.required]); // TODO: add pattern
+    this.registerForm.get('email')?.addValidators([Validators.required]);
     this.registerForm.get('password')?.addValidators([Validators.required, Validators.minLength(8)]);
     this.registerForm.get('rePassword')?.addValidators([Validators.required, Validators.minLength(8)]);
   }
