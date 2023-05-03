@@ -1,5 +1,13 @@
-<ul>
-  <li *ngFor="let exhibition of exhibitions">
-    <h2>{{ exhibition.name }}</h2>
-  </li>
-</ul>
+<div class="container d-flex flex-column justify-content-center align-items-center my-3" *ngFor="let exhibition of exhibitions">
+  <mat-card class="exhibition-card mb-1">
+    <mat-card-header>
+      <mat-card-title>{{ exhibition.name }}</mat-card-title>
+      <mat-card-subtitle class="dark-text">Open from: {{ exhibition.openFrom }}</mat-card-subtitle>
+    </mat-card-header>
+    <img mat-card-image [src]="'/assets/' + exhibition.imageResource" alt="Photo of exhibition">
+    <mat-card-content>
+      <p>{{ exhibition.description }}</p>
+    </mat-card-content>
+  </mat-card>
+  <mat-divider></mat-divider>
+</div>

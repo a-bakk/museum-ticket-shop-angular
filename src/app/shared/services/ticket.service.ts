@@ -25,11 +25,11 @@ export class TicketService {
   }
 
   updateTicket(ticket: Ticket) {
-    return this.afs.collection<Ticket>(this.collectionName).doc(ticket.id).set(ticket);
+    this.afs.collection<Ticket>(this.collectionName).doc(ticket.id).set(Object.assign({}, ticket));
   }
 
   deleteTicket(id: string) {
-    return this.afs.collection<Ticket>(this.collectionName).doc(id).delete();
+    this.afs.collection<Ticket>(this.collectionName).doc(id).delete();
   }
 
 }
