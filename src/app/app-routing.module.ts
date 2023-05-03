@@ -23,6 +23,12 @@ const routes: Routes = [
     canActivate: [AuthGuard]
   },
   {
+    path: 'modify-ticket',
+    loadChildren: () =>
+      import('./pages/modify-ticket/modify-ticket.module').then(m => m.ModifyTicketModule),
+      canActivate: [AuthGuard]
+  },
+  {
     path: 'login',
     loadChildren: () =>
       import('./pages/login/login.module').then((m) => m.LoginModule),
