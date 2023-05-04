@@ -1,3 +1,9 @@
-<p>{{ currentUser?.email }}</p>
+<div class="container d-flex flex-column justify-content-center align-items-center my-3">
+  <button mat-fab color="primary" aria-label="User icon">
+    <mat-icon>account_circle</mat-icon>
+  </button>
+  <label class="my-2 mt-4 dark-text">Name</label><input type="text" class="form-control input-sm" [value]="currentUser?.displayName" disabled />
+  <label class="my-2 dark-text">E-mail</label><input type="text" class="form-control input-sm" [value]="currentUser?.email" disabled />
+</div>
 
 <app-list [email]="currentUser?.email" (deleteTicket)="onDeleteTicket($event)"></app-list>
