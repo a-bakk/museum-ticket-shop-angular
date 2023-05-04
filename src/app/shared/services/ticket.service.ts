@@ -16,7 +16,7 @@ export class TicketService {
     this.afs.collection<Ticket>(this.collectionName).doc(ticket.id).set(Object.assign({}, ticket));
   }
 
-  readTicketById(id: number) {
+  readTicketById(id: string) {
     return this.afs.collection<Ticket>(this.collectionName, ref => ref.where('id', '==', id)).valueChanges();
   }
 

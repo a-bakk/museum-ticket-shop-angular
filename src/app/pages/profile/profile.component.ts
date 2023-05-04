@@ -1,4 +1,4 @@
-import { Component, OnInit, Input } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { TicketService } from '../../shared/services/ticket.service';
 import { Router } from '@angular/router';
 
@@ -21,6 +21,10 @@ export class ProfileComponent implements OnInit {
     console.log(ticketId);
     this.ticketService.deleteTicket(ticketId);
     this.router.navigateByUrl('/profile');
+  }
+
+  onModifyTicket(ticketId: string) {
+    this.router.navigate(['/modify-ticket', { currentTicketId: ticketId }]);
   }
 
 }

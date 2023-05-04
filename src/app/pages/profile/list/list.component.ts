@@ -10,6 +10,7 @@ import { TicketService } from '../../../shared/services/ticket.service';
 export class ListComponent implements OnInit {
   @Input() email: string | undefined | null;
   @Output() deleteTicket = new EventEmitter<string>();
+  @Output() modifyTicket = new EventEmitter<string>();
   tickets: Ticket[] = [];
 
   constructor(private ticketService: TicketService) {}
@@ -26,5 +27,9 @@ export class ListComponent implements OnInit {
 
   onDeleteTicket(ticketId: string) {
     this.deleteTicket.emit(ticketId);
+  }
+
+  onModifyTicket(ticketId: string) {
+    this.modifyTicket.emit(ticketId);
   }
 }

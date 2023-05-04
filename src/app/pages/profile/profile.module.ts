@@ -8,14 +8,13 @@ import { MatIconModule } from '@angular/material/icon';
 import { ProfileRoutingModule } from './profile-routing.module';
 import { ProfileComponent } from './profile.component';
 import { ListComponent } from './list/list.component';
-import { ExhibitionConvertPipe } from '../../shared/pipes/exhibition-convert.pipe';
+import { SharedModule } from '../../shared/shared.module';
 
 
 @NgModule({
   declarations: [
     ProfileComponent,
-    ListComponent,
-    ExhibitionConvertPipe
+    ListComponent
   ],
   imports: [
     CommonModule,
@@ -23,7 +22,8 @@ import { ExhibitionConvertPipe } from '../../shared/pipes/exhibition-convert.pip
     MatCardModule,
     MatDividerModule,
     MatButtonModule,
-    MatIconModule
+    MatIconModule,
+    SharedModule
   ]
 })
 export class ProfileModule {
