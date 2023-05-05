@@ -6,4 +6,4 @@
   <label class="my-2 dark-text">E-mail</label><input type="text" class="form-control input-sm" [value]="currentUser?.email" disabled />
 </div>
 
-<app-list [email]="currentUser?.email" (deleteTicket)="onDeleteTicket($event)" (modifyTicket)="onModifyTicket($event)"></app-list>
+<app-list [email]="currentLoadedUser?.email" (deleteTicket)="onDeleteTicket($event)" (modifyTicket)="onModifyTicket($event)"></app-list>
