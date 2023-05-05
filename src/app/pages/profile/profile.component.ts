@@ -15,6 +15,7 @@ export class ProfileComponent implements OnInit {
 
   constructor(private ticketService: TicketService, private router: Router, private authService: AuthService) { }
 
+
   ngOnInit(): void {
     this.currentLoadedUser = JSON.parse(localStorage.getItem('currentUser') as string) as firebase.default.User;
     this.authService.getloggedInUser().subscribe(user => {
