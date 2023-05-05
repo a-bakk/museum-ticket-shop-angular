@@ -35,8 +35,6 @@ export class TicketsComponent implements OnInit {
     this.ticketForm.get('ticketDate')?.addValidators([Validators.required]);
 
     this.currentUser = JSON.parse(localStorage.getItem('currentUser') as string) as firebase.default.User;
-
-    console.log('asd-2');
   }
 
   readExhibitions() {
@@ -46,7 +44,6 @@ export class TicketsComponent implements OnInit {
   }
 
   onSubmit() {
-    console.log('asd-1');
     if (this.ticketForm.valid) {
       let fullPrice = this.ticketForm.get('fullPrice')?.value as number;
       let halfPrice = this.ticketForm.get('halfPrice')?.value as number;

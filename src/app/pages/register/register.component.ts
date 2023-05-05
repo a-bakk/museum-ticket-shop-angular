@@ -29,11 +29,13 @@ export class RegisterComponent implements OnInit {
   register() {
     if (this.registerForm.valid) {
       this.authService.register(this.registerForm.get('email')?.value, this.registerForm.get('password')?.value).then(cred => {
-        this.authService.addDisplayName(this.registerForm.get('name')?.value).then(() => {
+        cred.user?.updateProfile({
+          displayName: this.registerForm.get('name')?.value
+        }).then(_ => {
           this.router.navigateByUrl('/exhibitions');
         }).catch(error => {
           console.error(error);
-        });
+        })
       }).catch(error => {
         console.error(error);
       });

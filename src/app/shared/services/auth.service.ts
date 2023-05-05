@@ -16,14 +16,6 @@ export class AuthService {
     return this.auth.createUserWithEmailAndPassword(email, password);
   }
 
-  addDisplayName(name: string) {
-    return this.auth.currentUser.then((user) => {
-      user?.updateProfile({
-        displayName: name
-      });
-    });
-  }
-
   getloggedInUser() {
     return this.auth.user;
   }

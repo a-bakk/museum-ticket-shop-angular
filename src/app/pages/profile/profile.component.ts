@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { TicketService } from '../../shared/services/ticket.service';
 import { Router } from '@angular/router';
+import { AuthService } from '../../shared/services/auth.service';
 
 @Component({
   selector: 'app-profile',
@@ -11,10 +12,12 @@ export class ProfileComponent implements OnInit {
 
   currentUser?: firebase.default.User | null;
 
-  constructor(private ticketService: TicketService, private router: Router) { }
+  constructor(private ticketService: TicketService, private router: Router, private authService: AuthService) { }
 
   ngOnInit(): void {
-    this.currentUser = JSON.parse(localStorage.getItem('currentUser') as string) as firebase.default.User;
+    this.authService.getloggedInUser().subscribe(user => {
+      this.currentUser = user;
+    })
   }
 
   onDeleteTicket(ticketId: string) {
